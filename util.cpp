@@ -7,7 +7,6 @@
 #include "string.h"
 #include <vector> //added this ask cp
 
-using namespace std;
 std::string convToLower(std::string src)
 {
     std::transform(src.begin(), src.end(), src.begin(), ::tolower);
@@ -16,12 +15,12 @@ std::string convToLower(std::string src)
 
 /** Complete the code to convert a string containing a rawWord
     to a set of words based on the criteria given in the assignment **/
-std::set<std::string> parseStringToWords(string rawWords)
+std::set<std::string> parseStringToWords(std::string rawWords)
 {
   //rawWords = "Sally,! Salamander,, Salmon, Wow!Gizzle, FizzlePOP, Men's T-Shirt";
-  set<string> newString;
-  string newWord;
-  string temp = " ";
+  std::set<std::string> newString;
+  std::string newWord;
+  std::string temp = " ";
   for (unsigned int i = 0; i < rawWords.size(); i++)
   {
     if (ispunct(rawWords[i]) || isspace(rawWords[i]))
@@ -50,10 +49,10 @@ std::set<std::string> parseStringToWords(string rawWords)
       newWord += rawWords[i];
     }
   }
-  set <string>::iterator it;
+  std::set <std::string>::iterator it;
   for (it = newString.begin(); it != newString.end(); it++) //test function
   {
-    cout << *it << endl;
+    std::cout << *it << std::endl;
   }
     /*rawWords = "Sally, Salamander, Salmon";
   stringstream s_stream (rawWords);

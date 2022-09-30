@@ -5,7 +5,6 @@
 #include <iostream>
 #include <set>
 
-using namespace std;
 /** Complete the setIntersection and setUnion functions below
  *  in this header file (since they are templates).
  *  Both functions should run in time O(n*log(n)) and not O(n^2)

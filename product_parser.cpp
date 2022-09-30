@@ -1,4 +1,6 @@
-#include <iostream>
+
+#ifndef MYDATASTORE_H
+#define MYDATASTORE_H#include <iostream>
 #include <sstream>
 #include "product_parser.h"
 #include "book.h"

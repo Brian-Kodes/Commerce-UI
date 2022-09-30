@@ -6,7 +6,6 @@
 #include <string>
 #include <iostream>
 
-using namespace std;
 
 Movie::Movie(string genre, string rating, const string category, const string name, double price, int qty)
 :Product(category,name,price,qty){
