@@ -29,6 +29,7 @@ int main(int argc, char* argv[])
      * Declare your derived DataStore object here replacing
      *  DataStore type to your derived type
      ****************/
+     //DataStore* daStore = new DataStore;
     DataStore ds;
 
 
