@@ -2,7 +2,6 @@
 #include <sstream>
 #include <cctype>
 #include <algorithm>
-
 #include "util.h"
 #include "string.h"
 #include <vector> //added this ask cp
@@ -25,9 +24,9 @@ std::set<std::string> parseStringToWords(std::string rawWords)
   {
     if (ispunct(rawWords[i]) || isspace(rawWords[i]))
     {
-        if (newWord != "")
+        if (newWord != "") //if its not empty
         {
-          if (newWord.size() >= 2)
+          if (newWord.size() >= 2) // if its greater than 2 words
           {
           newWord = convToLower(newWord);
           newString.insert(newWord);
@@ -49,11 +48,11 @@ std::set<std::string> parseStringToWords(std::string rawWords)
       newWord += rawWords[i];
     }
   }
-  std::set <std::string>::iterator it;
-  for (it = newString.begin(); it != newString.end(); it++) //test function
-  {
-    std::cout << *it << std::endl;
-  }
+  //std::set <std::string>::iterator it;
+  //for (it = newString.begin(); it != newString.end(); it++) //test function
+  //{
+    //std::cout << *it << std::endl;
+  //}
     /*rawWords = "Sally, Salamander, Salmon";
   stringstream s_stream (rawWords);
   set<string> newString;

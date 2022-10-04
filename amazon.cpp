@@ -6,9 +6,13 @@
 #include <iomanip>
 #include <algorithm>
 #include "product.h"
+#include "book.h"
+#include "clothing.h"
+#include "movie.h"
 #include "db_parser.h"
-#include "product_parser.h"
+//#include "product_parser.h"
 #include "util.h"
+#include "mydatastore.h"
 
 using namespace std;
 struct ProdNameSorter {
@@ -29,8 +33,8 @@ int main(int argc, char* argv[])
      * Declare your derived DataStore object here replacing
      *  DataStore type to your derived type
      ****************/
-     //DataStore* daStore = new DataStore;
-    DataStore ds;
+     myDataStore ds = myDataStore();
+     //myDataStore ds;
 
 
 
@@ -100,6 +104,30 @@ int main(int argc, char* argv[])
                 }
                 done = true;
             }
+            else if ( cmd == "BUYCART"){
+              string username;
+              if (ss >> username){
+                ds.buyCart(username);  //implement later
+              }
+            }
+            else if (cmd == "VIEWCART"){
+              string username;
+              if (ss >> username){
+              vector<Product*> dsCart = ds.getCart(username); //implement later vector of Product pointers
+              displayProducts(dsCart);
+              }
+             }
+            else if (cmd == "ADD")
+            {
+              string username;
+              unsigned int hit_search_number = 0;
+              ss >> hit_search_number;
+              if (ss >> username){
+                ds.addtoCart(username, hits[hit_search_number]);
+              }
+            }
+
+
 	    /* Add support for other commands here */
 
 

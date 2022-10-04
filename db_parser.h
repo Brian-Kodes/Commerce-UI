@@ -6,6 +6,7 @@
 #include "datastore.h"
 #include "product.h"
 #include "user.h"
+#include "util.h"
 #include "product_parser.h"
 
 /**

@@ -1,8 +1,6 @@
-#include "book.h"
 #include "product.h"
-#include "util.h"
 #include "clothing.h"
-#include "util.cpp"
+#include "util.h"
 #include <set>
 #include <string>
 #include <iostream>
@@ -25,6 +23,11 @@ std::string Clothing::parseSize()
 std::string Clothing::parseBrand()
 {
   return brand_;
+}
+
+bool Clothing::isMatch(std::vector<std::string>& searchTerms) const
+{
+    return false;
 }
 
 std::string Clothing::displayString() const

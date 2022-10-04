@@ -1,8 +1,7 @@
 #include "book.h"
 #include "product.h"
-#include "util.h"
-#include "util.cpp"
 #include <set>
+#include "util.h"
 #include <string>
 #include <iostream>
 
@@ -15,15 +14,15 @@ Book::Book(std::string isbn, std::string author, const std::string category, con
 Book::~Book()
 {}
 
-std::string Book::parseISBN()
-{
-  return isbn_;
-}
+//std::string Book::parseISBN()
+//{
+  //return isbn_;
+//}
 
-std::string Book::parseAuthor()
-{
-  return author_;
-}
+//std::string Book::parseAuthor()
+//{
+  //return author_;
+//}
 
 std::string Book::displayString() const
 {
@@ -31,6 +30,11 @@ std::string Book::displayString() const
   std::string strQ = std::to_string(qty_);
   std::string display = "Author: " + author_ + " ISBN: " + isbn_ + "\n" + strPrice + " " + strQ + " left.";
   return display;
+}
+
+bool Book::isMatch(std::vector<std::string>& searchTerms) const
+{
+    return false;
 }
 
 void Book::dump(std::ostream &os) const

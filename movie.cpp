@@ -1,13 +1,11 @@
-#include "book.h"
-#include "product.h"
 #include "movie.h"
 #include "util.cpp"
 #include <set>
 #include <string>
 #include <iostream>
 
-
-Movie::Movie(string genre, string rating, const string category, const string name, double price, int qty)
+using namespace std;
+Movie::Movie(std::string genre, std::string rating, const std::string category, const std::string name, double price, int qty)
 :Product(category,name,price,qty){
   genre_ = genre;
   rating_ = rating;
@@ -15,22 +13,27 @@ Movie::Movie(string genre, string rating, const string category, const string na
 Movie::~Movie()
 {}
 
-string Movie::parseGenre()
+std::string Movie::parseGenre()
 {
   return genre_;
 }
 
-string Movie::parseRating()
+std::string Movie::parseRating()
 {
   return rating_;
 }
 
-string Movie::displayString() const
+std::string Movie::displayString() const
 {
-  string strPrice = to_string(price_);
-  string strQ = to_string(qty_);
-  string display = "Genre: " + genre_ + " Rating: " + rating_ + "\n" + strPrice + " " + strQ + " left.";
+  std::string strPrice = to_string(price_);
+  std::string strQ = to_string(qty_);
+  std::string display = "Genre: " + genre_ + " Rating: " + rating_ + "\n" + strPrice + " " + strQ + " left.";
   return display;
+}
+
+bool Movie::isMatch(std::vector<std::string>& searchTerms) const
+{
+    return false;
 }
 
 void Movie::dump(std::ostream &os) const
@@ -38,7 +41,7 @@ void Movie::dump(std::ostream &os) const
    os << genre_ << " "  << rating_ << " " << category_ << " " << name_ << " " << price_ << " " << qty_ << endl;
 }
 
-set <string> Movie::keywords() const
+set <std::string> Movie::keywords() const
 {
   set<string> parsedName = parseStringToWords(name_);
   set<string> parsedGenre = parseStringToWords(genre_);
