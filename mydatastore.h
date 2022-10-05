@@ -23,17 +23,11 @@ public:
 private:
   std::map<std::string, User*> user_;
   std::map<std::string, std::set<Product*>> product_;
-  std::map<User*, std::vector<Product*>>userCart;
+  std::map<std::string, std::vector<Product*>>userCart;
   std::set<Product*> productList;
-  std::vector<Product*> Cart_;
-  //std::vector<User*> theUsers;
+  std::map<std::string, std::vector<Product*>>linkUserCart;
 
 
-
-  //need a way to store all products, users, carts
-  //hint: 3 variables
-  //hint: determine types of those variables
-  //hint: map look into it
 };
 
 #endif

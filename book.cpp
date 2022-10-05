@@ -14,21 +14,13 @@ Book::Book(std::string isbn, std::string author, const std::string category, con
 Book::~Book()
 {}
 
-//std::string Book::parseISBN()
-//{
-  //return isbn_;
-//}
 
-//std::string Book::parseAuthor()
-//{
-  //return author_;
-//}
 
 std::string Book::displayString() const
 {
   std::string strPrice = std::to_string(price_);
   std::string strQ = std::to_string(qty_);
-  std::string display = "Author: " + author_ + " ISBN: " + isbn_ + "\n" + strPrice + " " + strQ + " left.";
+  std::string display = name_ + "\n" + "Author: " + author_ + " ISBN: " + isbn_ + "\n" + strPrice + " " + strQ + " left.";
   return display;
 }
 

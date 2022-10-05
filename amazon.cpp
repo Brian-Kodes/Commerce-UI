@@ -10,7 +10,6 @@
 #include "clothing.h"
 #include "movie.h"
 #include "db_parser.h"
-//#include "product_parser.h"
 #include "util.h"
 #include "mydatastore.h"
 
@@ -120,10 +119,20 @@ int main(int argc, char* argv[])
             else if (cmd == "ADD")
             {
               string username;
-              unsigned int hit_search_number = 0;
-              ss >> hit_search_number;
-              if (ss >> username){
-                ds.addtoCart(username, hits[hit_search_number]);
+              string product;
+              int hit_search_number = 0;
+              if (ss >> username >> hit_search_number){
+                {
+                  if (hits.begin() == hits.end())
+                  {
+                    cout << "Search up something first" << endl;
+                  }
+
+                  else
+                  {
+                    ds.addtoCart(username, hits[hit_search_number-1]);
+                  }
+                }
               }
             }
 

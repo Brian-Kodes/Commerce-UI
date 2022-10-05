@@ -1,5 +1,5 @@
 #include "movie.h"
-#include "util.cpp"
+#include "util.h"
 #include <set>
 #include <string>
 #include <iostream>
@@ -27,7 +27,7 @@ std::string Movie::displayString() const
 {
   std::string strPrice = to_string(price_);
   std::string strQ = to_string(qty_);
-  std::string display = "Genre: " + genre_ + " Rating: " + rating_ + "\n" + strPrice + " " + strQ + " left.";
+  std::string display = name_ + "\n" + "Genre: " + genre_ + " Rating: " + rating_ + "\n" + strPrice + " " + strQ + " left.";
   return display;
 }
 
