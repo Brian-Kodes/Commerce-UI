@@ -5,7 +5,7 @@
 
 class Movie: public Product{
   public:
-  Movie (std::string genre, std::string rating, const std::string category, const std::string title, double price, int qty);
+  Movie (std::string genre, std::string rating, const std::string category, const std::string title, double price, double qty);
   ~Movie();
   std::string parseGenre();
   std::string parseRating();

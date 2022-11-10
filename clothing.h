@@ -5,7 +5,7 @@
 
 class Clothing: public Product{
   public:
-  Clothing (std::string size, std::string brand, const std::string category, const std::string name, double price, int q);
+  Clothing (std::string size, std::string brand, const std::string category, const std::string name, double price, double q);
   ~Clothing();
   std::string parseSize();
   std::string parseBrand();

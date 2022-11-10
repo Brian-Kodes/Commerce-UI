@@ -5,7 +5,7 @@
 
 class Book:public Product{
   public:
-  Book(std::string isbn, std::string author, const std::string category, const std::string name, double price, int qty);
+  Book(std::string isbn, std::string author, const std::string category, const std::string name, double price, double qty);
   ~Book();
   std::string parseISBN();
   std::string parseAuthor();

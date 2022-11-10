@@ -16,10 +16,13 @@
 using namespace std;
 struct ProdNameSorter {
     bool operator()(Product* p1, Product* p2) {
-        return (p1->getName() < p2->getName());
+        return (p1->getName() > p2->getName());
     }
 };
 void displayProducts(vector<Product*>& hits);
+
+void displayitemProducts(vector<Product*>& hits); //made this
+
 
 int main(int argc, char* argv[])
 {
@@ -113,7 +116,9 @@ int main(int argc, char* argv[])
               string username;
               if (ss >> username){
               vector<Product*> dsCart = ds.getCart(username); //implement later vector of Product pointers
-              displayProducts(dsCart);
+              //cout << "Item " << i << endl;
+              //i++;
+              displayitemProducts(dsCart);
               }
              }
             else if (cmd == "ADD")
@@ -161,6 +166,22 @@ void displayProducts(vector<Product*>& hits)
     std::sort(hits.begin(), hits.end(), ProdNameSorter());
     for(vector<Product*>::iterator it = hits.begin(); it != hits.end(); ++it) {
         cout << "Hit " << setw(3) << resultNo << endl;
+        cout << (*it)->displayString() << endl;
+        cout << endl;
+        resultNo++;
+    }
+}
+
+void displayitemProducts(vector<Product*>& hits) //made this
+{
+    int resultNo = 1;
+    if (hits.begin() == hits.end()) {
+    	cout << "Invalid username" << endl;
+    	return;
+    }
+    std::sort(hits.begin(), hits.end(), ProdNameSorter());
+    for(vector<Product*>::iterator it = hits.begin(); it != hits.end(); ++it) { // fix this line
+        cout << "Item " << resultNo << endl;
         cout << (*it)->displayString() << endl;
         cout << endl;
         resultNo++;

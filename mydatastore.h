@@ -15,7 +15,7 @@ public:
   std::vector<Product*> search(std::vector<std::string>& terms, int type);
   void dump(std::ostream& ofile);
   void buyCart (std::string username);
-  std::vector <Product*> getCart (std::string username);
+  std::vector<Product*> getCart (std::string username);
   void addtoCart (std::string username,Product *p);
 
 
@@ -26,8 +26,6 @@ private:
   std::map<std::string, std::vector<Product*>>userCart;
   std::set<Product*> productList;
   std::map<std::string, std::vector<Product*>>linkUserCart;
-
-
 };
 
 #endif

@@ -3,9 +3,10 @@
 #include <set>
 #include <string>
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
-Movie::Movie(std::string genre, std::string rating, const std::string category, const std::string name, double price, int qty)
+Movie::Movie(std::string genre, std::string rating, const std::string category, const std::string name, double price, double qty)
 :Product(category,name,price,qty){
   genre_ = genre;
   rating_ = rating;
@@ -26,8 +27,10 @@ std::string Movie::parseRating()
 std::string Movie::displayString() const
 {
   std::string strPrice = to_string(price_);
+  std::string strfixedPrice = strPrice.substr(0,5);
   std::string strQ = to_string(qty_);
-  std::string display = name_ + "\n" + "Genre: " + genre_ + " Rating: " + rating_ + "\n" + strPrice + " " + strQ + " left.";
+  //std::string strfixedQ = strQ.substr(0,5);
+  std::string display = name_ + "\n" + "Genre: " + genre_ + " Rating: " + rating_ + "\n" + strfixedPrice + " " + strQ + " left.";
   return display;
 }
 
@@ -38,7 +41,7 @@ bool Movie::isMatch(std::vector<std::string>& searchTerms) const
 
 void Movie::dump(std::ostream &os) const
 {
-   os << genre_ << " "  << rating_ << " " << category_ << " " << name_ << " " << price_ << " " << qty_ << endl;
+   os << category_ << std::endl  << name_ << std::endl << std::setprecision(2) << std::fixed << price_ << std::endl << qty_ << std::endl << genre_ << std::endl << rating_ << std::endl;
 }
 
 set <std::string> Movie::keywords() const

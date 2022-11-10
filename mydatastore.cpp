@@ -53,7 +53,7 @@ void myDataStore::buyCart (std::string username)
   {
     if (userCart.find(username) == userCart.end())
     {
-      cout << "cart doesn't exist" << endl;
+      cout << "Invalid username" << endl;
     }
     myCart = userCart.find(username) -> second;
     for (unsigned int i = 0; i < myCart.size(); i++)
@@ -79,6 +79,10 @@ void myDataStore::buyCart (std::string username)
       userCart.erase(username);
     }
 
+  }
+  else
+  {
+    cout << "Invalid username" << endl;
   }
 }
 
@@ -173,8 +177,17 @@ void myDataStore:: addtoCart(std::string username, Product* p)
       userCart.insert(std::pair<std::string, std::vector<Product*>>(username, thisaddedCart));
     }
   }
+  else
+  {
+    cout << "Invalid request" << endl;
+  }
 }
 
+struct ProdNameSorter { //added this
+    bool operator()(Product* p1, Product* p2) {
+        return (p1->getName() > p2->getName());
+    }
+  };
 void myDataStore:: dump(std::ostream& ofile)
 {
   std::map<std::string, std::set <Product*>>::iterator it;
@@ -182,22 +195,27 @@ void myDataStore:: dump(std::ostream& ofile)
   std::set<Product*> setofProducts;
   std::map<std::string, User*>::iterator it3;
   std::vector<Product*> vectorofProducts;
-  ofile << "<Products>" << endl;
+  ofile << "<products>" << endl;
   //int sizeofSet = 0;
+
   for (it = product_.begin() ; it != product_.end(); it++)
   {
+    //std::copy((it->second).begin(), (it->second).end(), std::back_inserter(vectorofProducts));
     vectorofProducts.assign((it -> second).begin(), (it->second).end());
+    std::sort(vectorofProducts.begin(), vectorofProducts.end(), ProdNameSorter()); //made this
     for (it2 = vectorofProducts.begin(); it2 != vectorofProducts.end(); it2++)
     {
       (*it2) -> dump(ofile);
     }
 
   }
-  ofile << "/Product" << endl;
+  ofile << "</products>" << endl;
   ofile << "<users>" << endl;
   for (it3 = user_.begin(); it3 != user_.end(); it3++)
   {
     it3 -> second -> dump(ofile);
   }
+  ofile << "</users>" << endl;
+
 }
 
